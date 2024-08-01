@@ -2,6 +2,7 @@ import  pandas as pd
 import streamlit as st
 import pickle
 import numpy as np
+import os
 
 # import the model
 pipe = pickle.load(open('pipe.pkl','rb'))
@@ -79,6 +80,13 @@ if st.button('Predict',use_container_width=True):
     predicted_price = np.exp(pipe.predict(query)[0])
 
     #st.title(f"The predicted price is Rs. {int(predicted_price)}")
+
+
+
+    if __name__ == "__main__":
+    port = int(os.environ.get('PORT', 8501))
+    st._is_running_with_streamlit = False
+    st.run(main, port=port)
     st.markdown(f'<h3 style="text-align: center;">Predicted Price is Rs. {int(predicted_price)}</h3>',
                 unsafe_allow_html=True)
 
