@@ -23,14 +23,14 @@ jobs:
       uses: docker/login-action@v2
       with:
         registry: https://mcr.microsoft.com/
-        username: ${{ secrets.AzureAppService_ContainerUsername_40b96a620c424c16ad76ba29d2004e1b }}
-        password: ${{ secrets.AzureAppService_ContainerPassword_b124ed9e22a64a968fa472fb9b6cd97a }}
+        username: ${{ secrets.AzureAppService_ContainerUsername_0af750731e104ec98a3a237f3b4c1209 }}
+        password: ${{ secrets.AzureAppService_ContainerPassword_e5ccd7b0b17847c49d996879812d9153 }}
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: mcr.microsoft.com/${{ secrets.AzureAppService_ContainerUsername_40b96a620c424c16ad76ba29d2004e1b }}/appsvc/staticsite:${{ github.sha }}
+        tags: mcr.microsoft.com/${{ secrets.AzureAppService_ContainerUsername_0af750731e104ec98a3a237f3b4c1209 }}/appsvc/staticsite:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -47,5 +47,5 @@ jobs:
       with:
         app-name: 'laptop-price-predictor'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_9b83a00f9e464537a837083bccc4b606 }}
-        images: 'mcr.microsoft.com/${{ secrets.AzureAppService_ContainerUsername_40b96a620c424c16ad76ba29d2004e1b }}/appsvc/staticsite:${{ github.sha }}'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_768ba6e19d6b47caa045ec776038cbfe }}
+        images: 'mcr.microsoft.com/${{ secrets.AzureAppService_ContainerUsername_0af750731e104ec98a3a237f3b4c1209 }}/appsvc/staticsite:${{ github.sha }}'
