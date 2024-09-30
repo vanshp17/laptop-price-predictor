@@ -17,7 +17,7 @@ This project is a Streamlit web application that predicts the price of a laptop 
 
 The project contains the following files:
 
-- `app.py`: The main Streamlit application script.
+- `main.py`: The main Streamlit application script.
 - `laptop_data.csv`: The dataset used for training the model.
 - `laptop.pkl`: The processed dataset after feature engineering and preprocessing.
 - `pipe.pkl`: The trained machine learning model.
@@ -55,7 +55,7 @@ Ensure you have the following installed:
 3. Run the Streamlit app:
 
     ```bash
-    streamlit run app.py
+    streamlit run main.py
     ```
 
 ## Data Preprocessing
@@ -81,7 +81,7 @@ The Streamlit app allows users to input the specifications of a laptop and get a
 
 ## Usage
 
-1. Open the Streamlit app by running `streamlit run app.py`.
+1. Open the Streamlit app by running `streamlit run main.py`.
 2. Input the desired specifications of the laptop.
 3. Click on the "Predict" button to get the estimated price.
 
